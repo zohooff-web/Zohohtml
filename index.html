@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Today's HTML Learning Report</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+body{
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+.container{
+    width:100%;
+    max-width:700px;
+    background:#fff;
+    border-radius:15px;
+    padding:30px;
+    box-shadow:0 15px 35px rgba(0,0,0,.3);
+}
+h1{
+    text-align:center;
+    color:#0d6efd;
+    margin-bottom:20px;
+}
+label{
+    display:block;
+    margin-top:15px;
+    font-weight:bold;
+}
+input,textarea,select{
+    width:100%;
+    padding:12px;
+    margin-top:8px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+}
+textarea{
+    resize:vertical;
+}
+button{
+    width:100%;
+    margin-top:25px;
+    padding:14px;
+    border:none;
+    border-radius:8px;
+    background:#0d6efd;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+button:hover{
+    background:#084298;
+}
+.result{
+    display:none;
+    margin-top:25px;
+    background:#e8fff0;
+    border-left:6px solid green;
+    padding:20px;
+    border-radius:8px;
+}
+.result h2{
+    color:green;
+    margin-bottom:10px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>📘 HTML Daily Learning Form</h1>
+
+<form id="learningForm">
+
+<label>Student Name</label>
+<input type="text" id="name" placeholder="Enter your name" required>
+
+<label>Date</label>
+<input type="date" id="date" required>
+
+<label>Today's Topic</label>
+<select id="topic">
+<option>HTML Basics</option>
+<option>HTML Tags</option>
+<option>Headings & Paragraphs</option>
+<option>Images & Links</option>
+<option>Lists</option>
+<option>Tables</option>
+<option>Forms</option>
+<option>Semantic Tags</option>
+<option>Audio & Video</option>
+<option>Other</option>
+</select>
+
+<label>What new HTML concepts did you learn today?</label>
+<textarea id="learned" rows="4"
+placeholder="Example:
+✔ HTML Structure
+✔ Heading Tags
+✔ Paragraph Tag
+✔ Anchor Tag"></textarea>
+
+<label>Which HTML tags did you practice?</label>
+<textarea id="tags" rows="3"
+placeholder="<h1>, <p>, <img>, <a>, <table> ..."></textarea>
+
+<label>Did you create any HTML webpage today?</label>
+<select id="project">
+<option>Yes</option>
+<option>No</option>
+</select>
+
+<label>What difficulties did you face?</label>
+<textarea id="problem" rows="3"></textarea>
+
+<label>What will you learn tomorrow?</label>
+<textarea id="tomorrow" rows="3"></textarea>
+
+<button type="submit">Submit Report</button>
+
+</form>
+
+<div class="result" id="result">
+<h2>✅ Today's Learning Report Submitted</h2>
+
+<p><strong>Name:</strong> <span id="rName"></span></p>
+<p><strong>Date:</strong> <span id="rDate"></span></p>
+<p><strong>Topic:</strong> <span id="rTopic"></span></p>
+
+<hr><br>
+
+<p><strong>New Concepts Learned:</strong></p>
+<p id="rLearn"></p>
+
+<p><strong>HTML Tags Practiced:</strong></p>
+<p id="rTags"></p>
+
+<p><strong>Mini Project:</strong> <span id="rProject"></span></p>
+
+<p><strong>Difficulties:</strong></p>
+<p id="rProblem"></p>
+
+<p><strong>Tomorrow's Goal:</strong></p>
+<p id="rTomorrow"></p>
+
+</div>
+
+</div>
+
+<script>
+document.getElementById("learningForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+document.getElementById("rName").textContent=document.getElementById("name").value;
+document.getElementById("rDate").textContent=document.getElementById("date").value;
+document.getElementById("rTopic").textContent=document.getElementById("topic").value;
+document.getElementById("rLearn").textContent=document.getElementById("learned").value;
+document.getElementById("rTags").textContent=document.getElementById("tags").value;
+document.getElementById("rProject").textContent=document.getElementById("project").value;
+document.getElementById("rProblem").textContent=document.getElementById("problem").value;
+document.getElementById("rTomorrow").textContent=document.getElementById("tomorrow").value;
+
+document.getElementById("result").style.display="block";
+
+window.scrollTo({
+top:document.body.scrollHeight,
+behavior:"smooth"
+});
+
+});
+</script>
+
+</body>
+</html>
